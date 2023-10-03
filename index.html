@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>soepkip</title>
+    <meta name="description" content="je bent een soepkip">
+    
+    <meta property="og:title" content="soepkip.nl.eu.org">
+    <meta property="og:description" content="je bent een soepkip">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soepkip.nl.eu.org/">
+    <meta property="og:site_name" content="soepkip.nl.eu.org">
+    <meta property="og:image" content="https://soepkip.nl.eu.org/media/wide.png">
+
+    <meta name="twitter:title" content="soepkip.nl.eu.org">
+    <meta name="twitter:description" content="je bent een soepkip">
+    <meta name="twitter:image" content="https://soepkip.nl.eu.org/media/wide.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="apple-touch-icon" href="/media/icon.png">
+    <link rel="icon" href="/media/icon.png">
+
+    <meta name="application-name" content="soepkip.nl.eu.org">
+    <meta name="msapplication-tooltip" content="je bent een soepkip">
+    <meta name="theme-color" content="#d926be">
+    <meta name="color-scheme" content="light dark">
+
+    <style type="text/css">
+        @font-face {
+            font-family: Futura;
+            src: url("/media/fonts/Futura.woff2");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Cascadia Mono";
+            src: url("/media/fonts/CascadiaMono.woff2");
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100dvh;
+            max-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #dddddd;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        main {
+            text-align: center;
+            margin: .5em;
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.95);
+            color: #111111;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Futura, sans-serif;
+            z-index: 1;
+        }
+
+        main *::selection {
+            background-color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: #555555;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-weight: normal;
+        }
+
+        #input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #input>div {
+            margin: 4px 0;
+
+        }
+
+        #input>div:nth-child(2) {
+            display: flex;
+            width: 100%;
+        }
+
+        #input>div:nth-child(3) {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        #input-text {
+            width: 100%;
+        }
+
+        #input-submit,
+        #output-save {
+            cursor: pointer;
+        }
+
+        .input:disabled,
+        #input-submit:disabled {
+            cursor: not-allowed;
+        }
+
+        #input-text,
+        #input-submit {
+            font-size: 1.4em;
+            border: none;
+            padding: 4px 6px;
+            margin: 2px;
+            background: #f0f0f0;
+            font-family: "Cascadia Mono", monospace;
+        }
+
+        #input-rainbow,
+        #input-color {
+            vertical-align: middle;
+        }
+
+        .input:focus {
+            outline: var(--accent-color) 2px solid;
+        }
+
+        #input-warning {
+            text-align: center;
+            padding: .25em;
+            background: #ff0000;
+            color: white;
+            font-family: "Cascadia Mono", monospace;
+            padding: 4px 6px;
+        }
+
+        #progress-bar {
+            margin: 2em 0;
+            appearance: none;
+            background-color: #dddddd;
+        }
+
+        #progress-bar::-webkit-progress-bar {
+            background-color: #dddddd;
+        }
+
+        #progress-bar::-webkit-progress-value {
+            background-color: var(--accent-color);
+        }
+
+        #progress-bar::-moz-progress-bar {
+            background-color: var(--accent-color);
+        }
+
+        #output {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #output-gif {
+            margin: 4px 0;
+        }
+
+        #output-save {
+            font-size: 1.1em;
+            border: none;
+            margin-top: 1em;
+            font-family: "Cascadia Mono", monospace;
+        }
+
+        #output-save>svg {
+            vertical-align: bottom;
+        }
+
+        #about {
+            margin-top: 1em;
+        }
+
+        .draggable {
+            cursor: default;
+        }
+
+        .rainbow {
+            animation: rainbow 3500ms steps(1, jump-end) infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                color: rgb(255, 109, 0);
+            }
+
+            7.142857143% {
+                color: rgb(255, 219, 0);
+            }
+
+            14.28571429% {
+                color: rgb(182, 255, 0);
+            }
+
+            21.42857143% {
+                color: rgb(73, 255, 0);
+            }
+
+            28.57142857% {
+                color: rgb(0, 255, 36);
+            }
+
+            35.71428571% {
+                color: rgb(0, 255, 146);
+            }
+
+            42.85714286% {
+                color: rgb(0, 255, 255);
+            }
+
+            50% {
+                color: rgb(0, 146, 255);
+            }
+
+            57.14285714% {
+                color: rgb(0, 36, 255);
+            }
+
+            64.28571429% {
+                color: rgb(73, 0, 255);
+            }
+
+            71.42857143% {
+                color: rgb(182, 0, 255);
+            }
+
+            78.57142857% {
+                color: rgb(255, 0, 219);
+            }
+
+            85.71428571% {
+                color: rgb(255, 0, 109);
+            }
+
+            92.85714286% {
+                color: rgb(255, 0, 0);
+            }
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #161616;
+            }
+
+            main {
+                background: rgba(0, 0, 0, 0.95);
+                color: #eeeeee;
+            }
+
+            a {
+                color: #cccccc;
+            }
+
+            a:hover {
+                color: white;
+            }
+
+            #input-text,
+            #input-submit {
+                background: #3b3b3b;
+            }
+
+            #progress-bar {
+                background-color: #161616;
+            }
+
+            #progress-bar::-webkit-progress-bar {
+                background-color: #161616;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            #subtitle-image {
+                display: none;
+            }
+        }
+
+
+
+
+
+        /* ////////////////////////////////////////////////////////////// */
+        /* soepkip */
+        /* ////////////////////////////////////////////////////////////// */
+
+        #background {
+            position: fixed;
+            z-index: 0;
+        }
+
+        .soepkip {
+            position: fixed;
+            cursor: default;
+            transition: translate 1s ease-in;
+        }
+
+        .soepkip:hover {
+            filter: invert();
+        }
+
+        .soepkip::selection {
+            color: unset;
+            background: unset;
+        }
+
+        .slide-to-the-left {
+            translate: -100vw;
+        }
+
+        .slide-to-the-right {
+            translate: 100vw;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        .lowercase {
+            text-transform: lowercase;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .capitalize {
+            text-transform: capitalize;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .black {
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main class="draggable">
+        <div id="header" class="draggable">
+            <h1 hidden>soepkip.nl.eu.org</h1>
+            <img src="/media/soepkip.webp" alt="soepkip" width="1164" height="178" class="draggable">
+            <img src="/media/nl.eu.org.webp" alt=".nl.eu.org" width="256" height="27" id="subtitle-image"
+                class="draggable">
+
+            <h2>
+                genereer hier je eigen dansende letters gif!
+            </h2>
+        </div>
+
+        <div id="input" class="draggable">
+            <div id="input-warning" hidden></div>
+            <div>
+                <label for="input-text" hidden>tekst</label>
+                <input type="text" placeholder="soepkip" id="input-text" class="input" autofocus>
+                <button id="input-submit" class="input" disabled>&gt;</button>
+            </div>
+            <div>
+                <div>
+                    <label for="input-color" id="input-color-label">kleur</label>
+                    <input type="color" id="input-color" class="input" value="#F00000">
+                </div>
+                <div>
+                    <label for="input-rainbow" id="input-rainbow-label">
+                        <span>r</span><span>e</span><span>g</span><span>e</span><span>n</span><span>b</span><span>o</span><span>o</span><span>g</span>
+                    </label>
+                    <input type="checkbox" id="input-rainbow" class="input">
+                </div>
+            </div>
+        </div>
+
+        <div id="loader" class="draggable" hidden>
+            <progress id="progress-bar"></progress>
+        </div>
+
+        <div id="output" class="draggable" hidden>
+            <a href="" download="" id="output-anchor">
+                <img src="" alt="" id="output-gif">
+            </a>
+            <button id="output-save" title="het internet is tijdelijk, downloaden is voor altijd">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" fill="none">
+                    <path d="M 4 20 20 20"></path>
+                    <path d="M7 11l5 5l5 -5"></path>
+                    <path d="M12 4l0 12"></path>
+                </svg>
+                opslaan als
+            </button>
+        </div>
+
+        <small id="about">
+            <a href="/over-soepkip-nl-eu-org">over soepkip.nl.eu.org</a>
+        </small>
+    </main>
+
+
+
+    <div id="background"></div>
+
+
+    <link rel="preload" href="/media/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/media/fonts/fonts.css">
+    </noscript>
+
+    <script type="module" src="/script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+@font-face {
+    font-family: Calibri;
+    src: url("/media/fonts/Calibri.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Chiller;
+    src: url("/media/fonts/Chiller.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Comic Sans MS";
+    src: url("/media/fonts/ComicSansMS3.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Consolas;
+    src: url("/media/fonts/Consolas.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cooper Black";
+    src: url("/media/fonts/Cooper Black.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Copperplate Gothic";
+    src: url("/media/fonts/Copperplate Gothic.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Courier New";
+    src: url("/media/fonts/Courier New.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Digital 7";
+    src: url("/media/fonts/digital-7.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Harlow Solid";
+    src: url("/media/fonts/Harlow Solid.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url("/media/fonts/Helvetica.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Impact;
+    src: url("/media/fonts/Impact.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ITC Avant Garde Gothic";
+    src: url("/media/fonts/ITC Avant Garde Gothic.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JMH Typewriter";
+    src: url("/media/fonts/JMH Typewriter.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Jokerman;
+    src: url("/media/fonts/Jokerman.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kenteken;
+    src: url("/media/fonts/Kenteken.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Minecrafter;
+    src: url("/media/fonts/Minecrafter.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Papyrus;
+    src: url("/media/fonts/Papyrus.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "QR font";
+    src: url("/media/fonts/QR font.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Rijksoverheid;
+    src: url("/media/fonts/RijksoverheidSerif.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Univers;
+    src: url("/media/fonts/Univers.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Wingdings;
+    src: url("/media/fonts/Wingdings.woff2");
+    font-display: swap;
+}
+
+.calibri {
+    font-family: Calibri, sans-serif;
+}
+
+.cascadiamono {
+    font-family: "Cascadia Mono", monospace;
+}
+
+.chiller {
+    font-family: Chiller, fantasy;
+}
+
+.comicsansms {
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+.consolas {
+    font-family: Consolas, monospace;
+}
+
+.cooperblack {
+    font-family: "Cooper Black", serif;
+}
+
+.copperplategothic {
+    font-family: "Copperplate Gothic", serif;
+}
+
+.couriernew {
+    font-family: "Courier New", monospace;
+}
+
+.digital7 {
+    font-family: "Digital 7", monospace;
+}
+
+.futura {
+    font-family: Futura, sans-serif;
+}
+
+.harlowsolid {
+    font-family: "Harlow Solid", cursive;
+}
+
+.helvetica {
+    font-family: Helvetica, sans-serif;
+}
+
+.impact {
+    font-family: Impact, sans-serif;
+}
+
+.itcavantgardegothic {
+    font-family: "ITC Avant Garde Gothic", sans-serif;
+}
+
+.jmhtypewriter {
+    font-family: "JMH Typewriter", monospace;
+}
+
+.jokerman {
+    font-family: Jokerman, fantasy;
+}
+
+.kenteken {
+    font-family: Kenteken, sans-serif;
+}
+
+.minecrafter {
+    font-family: Minecrafter, fantasy;
+}
+
+.papyrus {
+    font-family: Papyrus, fantasy;
+}
+
+.qrfont {
+    font-family: "QR font", monospace;
+}
+
+.rijksoverheid {
+    font-family: Rijksoverheid, serif;
+}
+
+.univers {
+    font-family: Univers, sans-serif;
+}
+
+.wingdings {
+    font-family: Wingdings, fantasy;
+}
