@@ -152,7 +152,7 @@ function createSoepkip() {
 
 async function clickSoepkip(event) {
     // play sound
-    new Audio(`/media/${event.target.innerText}.mp3`).play();
+    new Audio(`/media/${event.target.innerText.toLowerCase()}.mp3`).play();
 
     // remove element
     await removeSoepkip(event.target);
