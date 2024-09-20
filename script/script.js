@@ -12,7 +12,7 @@ let input, backgroundColor, images, frames, palette, blob, url, soepkipInterval,
     accentColor = randomColor();
 
 
-const workerUrl = '/script/worker.min.js',
+const workerUrl = '/script/worker.js',
     totalFrames = 14,
     delay = 250,
     format = 'rgb444',
